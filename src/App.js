@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import firebase from './firebase'
+import Navigation from './Navigation'
 
-class App extends Component {
+
+class App extends React.Component  {
+  state = {
+    authenticated: false,
+  };
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((authenticated) => {
+      authenticated
+      ?this.setState(() => ({
+        authenticated: true,
+      }))
+      : this.setState(() => ({
+          authenticated: false,
+      }));
+    });
+
+  }
+
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+    return <Navigation class="container-fluid" authenticated={this.state.authenticated} />;
+
   }
 }
-
 export default App;

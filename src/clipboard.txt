@@ -1,0 +1,7 @@
+<Router>
+        <NavLink to="/model1">Model1</NavLink>
+        <Switch>
+          <Route path="/model1" component={Model1}>
+          </Route>
+        </Switch>
+      </Router>
