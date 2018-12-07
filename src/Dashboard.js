@@ -8,7 +8,7 @@ class Dashboard extends React.Component{
       <div>
         <div>
           <div>Welcome to your Dashboard</div>
-          {}
+
           <br />
           <div>Please Select a Product to see its description</div>
         </div>
