@@ -1,9 +1,6 @@
 import React from 'react';
 import firebase from './firebase';
 
-
-
-let uname = "";
 class Login extends React.Component {
   state = {
     email: '',
@@ -22,8 +19,8 @@ class Login extends React.Component {
       .then((user) => {
 
         this.props.history.push('/');
-        uname = user.user.email;
-        console.log(uname);
+        let uname = user.user.email;
+        window.localStorage.setItem("username", uname);
 
       })
       .catch((error) => {

@@ -1,14 +1,14 @@
 import React from 'react';
-import firebase from './firebase';
+
 import { Model1,Model2,Model3 } from './Models';
-import { BrowserRouter as Router, Route, Switch , NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, NavLink } from "react-router-dom";
+let userName = window.localStorage.getItem("username")
 class Dashboard extends React.Component{
   render() {
     return (
       <div>
         <div>
-          <div>Welcome to your Dashboard</div>
-
+          <div>Welcome to your Dashboard {userName}</div>
           <br />
           <div>Please Select a Product to see its description</div>
         </div>
